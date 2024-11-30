@@ -1,0 +1,34 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.tubes_dpbo;
+
+/**
+ *
+ * @author Raka Darma
+ */
+public class RegistrasiUser extends Registrasi {
+    private String alamat;
+
+    public RegistrasiUser(String alamat, String nama, int noTelp, char email) {
+        super(nama, noTelp, email);
+        this.alamat = alamat;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+    
+     public void verifikasiUser() {
+        if (getNama() != null && !getNama().isEmpty() && getNoTelp() > 0 && getEmail() != '\0' && alamat != null && !alamat.isEmpty()) {
+            System.out.println("Verifikasi user berhasil!");
+        } else {
+            System.out.println("Verifikasi user gagal. Pastikan semua data telah diisi dengan benar.");
+        }
+    }
+}
