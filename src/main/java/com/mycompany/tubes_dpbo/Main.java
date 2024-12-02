@@ -16,19 +16,47 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
-
     public static void main(String[] args) {
         // Create the main frame
         JFrame frame = new JFrame("Role Selection Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-        
+        frame.setSize(500, 400);
+        frame.setLayout(new BorderLayout());
+
+        // Create menu bar
+        JMenuBar menuBar = new JMenuBar();
+
+        // Create menus
+        JMenu fileMenu = new JMenu("File");
+        JMenu helpMenu = new JMenu("Help");
+
+        // Create menu items
+        JMenuItem exitItem = new JMenuItem("Exit");
+        JMenuItem aboutItem = new JMenuItem("About");
+
+        // Add action listeners to menu items
+        exitItem.addActionListener(e -> System.exit(0)); // Exit application
+        aboutItem.addActionListener(e -> JOptionPane.showMessageDialog(frame,
+                "Role Selection Application\nVersion 1.0\nCreated by Your Name",
+                "About", JOptionPane.INFORMATION_MESSAGE));
+
+        // Add menu items to menus
+        fileMenu.add(exitItem);
+        helpMenu.add(aboutItem);
+
+        // Add menus to menu bar
+        menuBar.add(fileMenu);
+        menuBar.add(helpMenu);
+
+        // Add menu bar to frame
+        frame.setJMenuBar(menuBar);
+
         // Panel to hold components
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 1, 10, 10));
 
         // Welcome label
-        JLabel welcomeLabel = new JLabel("Selamat datang di Aplikasi Kami", SwingConstants.CENTER);
+        JLabel welcomeLabel = new JLabel("Welcome to Our Application", SwingConstants.CENTER);
         panel.add(welcomeLabel);
 
         // Instruction label
@@ -47,7 +75,8 @@ public class Main {
         JTextArea displayArea = new JTextArea();
         displayArea.setEditable(false);
         displayArea.setMargin(new Insets(10, 10, 10, 10));
-        frame.add(displayArea, BorderLayout.SOUTH);
+        JScrollPane scrollPane = new JScrollPane(displayArea);
+        frame.add(scrollPane, BorderLayout.SOUTH);
 
         // ActionListener for User button
         userButton.addActionListener(new ActionListener() {
@@ -82,6 +111,10 @@ public class Main {
 
         // Set frame visibility
         frame.setVisible(true);
+    }
+    
+    public void menu(){
+        
     }
 }
 
