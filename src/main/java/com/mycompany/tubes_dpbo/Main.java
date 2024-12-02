@@ -8,6 +8,8 @@ package com.mycompany.tubes_dpbo;
  *
  * @author Raka Darma
  */
+import com.mycompany.tubes_dpbo.userClass.Driver;
+import com.mycompany.tubes_dpbo.userClass.User;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
