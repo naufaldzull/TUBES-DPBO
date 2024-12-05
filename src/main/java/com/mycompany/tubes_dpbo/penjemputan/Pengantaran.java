@@ -10,16 +10,15 @@ import com.mycompany.tubes_dpbo.penjemputan.Penjemputan;
  *
  * @author Raka Darma
  */
-public class Pengantaran extends Penjemputan{
+public class Pengantaran implements Alamat{
     private String namaPenumpang;
     private String durasiPerjalanan;
 
-    public Pengantaran(String namaPenumpang, String durasiPerjalanan, String lokasiPenjemputan, String waktuPenjemputan, String namaPenjemput) {
-        super(lokasiPenjemputan, waktuPenjemputan, namaPenjemput);
+    public Pengantaran(String namaPenumpang, String durasiPerjalanan) {
         this.namaPenumpang = namaPenumpang;
         this.durasiPerjalanan = durasiPerjalanan;
     }
-
+    
     public String getNamaPenumpang() {
         return namaPenumpang;
     }
@@ -34,6 +33,16 @@ public class Pengantaran extends Penjemputan{
 
     public void setDurasiPerjalanan(String durasiPerjalanan) {
         this.durasiPerjalanan = durasiPerjalanan;
+    }
+
+    @Override
+    public void alamatTujuan() {
+        System.out.println("");
+    }
+
+    @Override
+    public void alamatAsal() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 
