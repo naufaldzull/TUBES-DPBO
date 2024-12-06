@@ -14,7 +14,7 @@ public class RegistrasiDriver extends Registrasi {
     private String sim;
     private String kendaraan;
 
-    public RegistrasiDriver(String nama, int noTelp, char email, String sim, String kendaraan) {
+    public RegistrasiDriver(String nama, int noTelp, String email, String sim, String kendaraan) {
         super(nama, noTelp, email);
         this.sim = sim;
         this.kendaraan = kendaraan;
@@ -35,7 +35,7 @@ public class RegistrasiDriver extends Registrasi {
     public void setKendaraan(String kendaraan) {
         this.kendaraan = kendaraan;
     }
-    
+
     public void uploadDokumen() {
         System.out.println("Dokumen dengan SIM: " + sim + " berhasil diunggah.");
     }

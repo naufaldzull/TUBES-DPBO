@@ -11,9 +11,9 @@ package com.mycompany.tubes_dpbo.registrasi;
 public class Registrasi {
     private String nama;
     private int noTelp;
-    private char email;
+    private String email;
 
-    public Registrasi(String nama, int noTelp, char email) {
+    public Registrasi(String nama, int noTelp, String email) {
         this.nama = nama;
         this.noTelp = noTelp;
         this.email = email;
@@ -27,7 +27,7 @@ public class Registrasi {
         return noTelp;
     }
 
-    public char getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -39,7 +39,7 @@ public class Registrasi {
         this.noTelp = noTelp;
     }
 
-    public void setEmail(char email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
