@@ -14,7 +14,7 @@ import com.mycompany.tubes_dpbo.userClass.User;
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
-        menu.displaymenu();
+        menu.registrationMenu();
     }
 }
 
