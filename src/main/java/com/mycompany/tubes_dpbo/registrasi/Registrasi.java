@@ -10,10 +10,10 @@ package com.mycompany.tubes_dpbo.registrasi;
  */
 public class Registrasi {
     private String nama;
-    private int noTelp;
+    private String noTelp;
     private String email;
 
-    public Registrasi(String nama, int noTelp, String email) {
+    public Registrasi(String nama, String noTelp, String email) {
         this.nama = nama;
         this.noTelp = noTelp;
         this.email = email;
@@ -23,7 +23,7 @@ public class Registrasi {
         return nama;
     }
 
-    public int getNoTelp() {
+    public String getNoTelp() {
         return noTelp;
     }
 
@@ -35,7 +35,7 @@ public class Registrasi {
         this.nama = nama;
     }
 
-    public void setNoTelp(int noTelp) {
+    public void setNoTelp(String noTelp) {
         this.noTelp = noTelp;
     }
 
@@ -43,9 +43,13 @@ public class Registrasi {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Registrasi{" + "nama=" + nama + ", noTelp=" + noTelp + ", email=" + email + '}';
+    public static boolean isEmpty(String nama, String noTelp, String email, String alamat, String sim, String kendaraan) {
+        return (nama == null || nama.isEmpty() ||
+                (noTelp == null || noTelp.isEmpty()) ||
+                (email == null || email.isEmpty()) ||
+                (alamat != null && alamat.isEmpty()) ||
+                (sim != null && sim.isEmpty()) ||
+                (kendaraan != null && kendaraan.isEmpty()));
     }
 }
 

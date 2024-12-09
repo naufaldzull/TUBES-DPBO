@@ -13,7 +13,7 @@ import com.mycompany.tubes_dpbo.registrasi.Registrasi;
 public class RegistrasiUser extends Registrasi {
     private String alamat;
 
-    public RegistrasiUser(String alamat, String nama, int noTelp, String email) {
+    public RegistrasiUser(String alamat, String nama, String noTelp, String email) {
         super(nama, noTelp, email);
         this.alamat = alamat;
     }
@@ -25,12 +25,12 @@ public class RegistrasiUser extends Registrasi {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-
     public void verifikasiUser() {
-        if (getNama() != null && !getNama().isEmpty() && getNoTelp() > 0 && getEmail() != null && !getEmail().isEmpty() && alamat != null && !alamat.isEmpty()) {
+        if (getNama() != null && !getNama().isEmpty() && getNoTelp() != null && !getNoTelp().isEmpty() && getEmail() != null && !getEmail().isEmpty() && alamat != null && !alamat.isEmpty()) {
             System.out.println("Verifikasi user berhasil!");
         } else {
             System.out.println("Verifikasi user gagal. Pastikan semua data telah diisi dengan benar.");
         }
     }
+     
 }

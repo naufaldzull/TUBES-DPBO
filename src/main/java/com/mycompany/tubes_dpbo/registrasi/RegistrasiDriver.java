@@ -14,7 +14,7 @@ public class RegistrasiDriver extends Registrasi {
     private String sim;
     private String kendaraan;
 
-    public RegistrasiDriver(String nama, int noTelp, String email, String sim, String kendaraan) {
+    public RegistrasiDriver(String nama, String noTelp, String email, String sim, String kendaraan) {
         super(nama, noTelp, email);
         this.sim = sim;
         this.kendaraan = kendaraan;
@@ -35,9 +35,9 @@ public class RegistrasiDriver extends Registrasi {
     public void setKendaraan(String kendaraan) {
         this.kendaraan = kendaraan;
     }
-
+    
     public void uploadDokumen() {
-        System.out.println("Dokumen dengan SIM: " + sim + " berhasil diunggah.");
+        System.out.println("Dokumen dengan Nomer SIM: " + sim + " berhasil diunggah.");
     }
 
     public void infoKendaraan() {
@@ -46,6 +46,7 @@ public class RegistrasiDriver extends Registrasi {
 
     @Override
     public String toString() {
-        return "RegistrasiDriver{" + "sim=" + sim + ", kendaraan=" + kendaraan + '}';
+        return "Nama: " + super.getNama() + ", No. Telp: " + super.getNoTelp() + ", Email: " + super.getEmail() + 
+           ", SIM: " + sim + ", Kendaraan: " + kendaraan;
     }
 }
