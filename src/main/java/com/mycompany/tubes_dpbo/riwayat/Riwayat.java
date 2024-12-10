@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tubes_dpbo.userClass;
+package com.mycompany.tubes_dpbo.riwayat;
 
-import com.mycompany.tubes_dpbo.userClass.Person;
+import com.mycompany.tubes_dpbo.riwayat.RPemesanan;
 
 /**
  *
  * @author Raka Darma
  */
-public class Driver extends Person {
+public class Riwayat extends RPemesanan {
     private String driverName;
     private String password;
     private int driverID;
     private int phoneNumber;
     private int gopayIncome;
 
-    public Driver(String driverName, String password, int driverID, int phoneNumber, int gopayIncome, String name, int age, String role) {
+    public Riwayat(String driverName, String password, int driverID, int phoneNumber, int gopayIncome, String name, int age, String role) {
         super(name, age, role);
         this.driverName = driverName;
         this.password = password;

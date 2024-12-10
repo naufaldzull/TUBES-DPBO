@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tubes_dpbo.userClass;
+package com.mycompany.tubes_dpbo.riwayat;
 
 /**
  *
  * @author Raka Darma
  */
-public class Person {
+public class RPemesanan {
     protected String name;
     protected int age;
     protected String role;
 
-    public Person(String name, int age, String role) {
+    public RPemesanan(String name, int age, String role) {
         this.name = name;
         this.age = age;
         this.role = role;
