@@ -10,5 +10,5 @@ package com.mycompany.tubes_dpbo.penjemputan;
  */
 public interface Alamat {
     public void alamatTujuan();
-    public void alamatAsal(); 
+    public void alamatAsal(String asal); 
 }

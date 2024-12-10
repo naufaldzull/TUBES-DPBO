@@ -41,7 +41,7 @@ public class Pengantaran implements Alamat{
     }
 
     @Override
-    public void alamatAsal() {
+    public void alamatAsal(String asal) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
