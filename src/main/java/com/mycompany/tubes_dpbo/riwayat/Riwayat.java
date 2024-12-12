@@ -11,31 +11,23 @@ import com.mycompany.tubes_dpbo.riwayat.RPemesanan;
  * @author Raka Darma
  */
 public class Riwayat extends RPemesanan {
-    private String driverName;
-    private String password;
-    private int driverID;
-    private int phoneNumber;
-    private int gopayIncome;
-
-    public Riwayat(String driverName, String password, int driverID, int phoneNumber, int gopayIncome, String name, int age, String role) {
-        super(name, age, role);
-        this.driverName = driverName;
-        this.password = password;
-        this.driverID = driverID;
-        this.phoneNumber = phoneNumber;
-        this.gopayIncome = gopayIncome;
+    public Riwayat(String DName, String UName, String orderID) {
+        super(DName, UName, orderID);
     }
 
-    public String getDriverName() {
-        return driverName;
+    @Override
+    public void DName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
+    @Override
+    public void Uname() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public int getGopayIncome() {
-        return gopayIncome;
+    @Override
+    public void OrderID() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 

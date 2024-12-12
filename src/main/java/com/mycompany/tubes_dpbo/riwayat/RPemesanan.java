@@ -8,38 +8,18 @@ package com.mycompany.tubes_dpbo.riwayat;
  *
  * @author Raka Darma
  */
-public class RPemesanan {
-    protected String name;
-    protected int age;
-    protected String role;
+public abstract class RPemesanan {
+    protected String DName;
+    protected String UName;
+    protected String orderID;
 
-    public RPemesanan(String name, int age, String role) {
-        this.name = name;
-        this.age = age;
-        this.role = role;
+    public RPemesanan(String DName, String UName, String orderID) {
+        this.DName = DName;
+        this.UName = UName;
+        this.orderID = orderID;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+    
+    public abstract void DName();
+    public abstract void Uname();
+    public abstract void OrderID();
 }
