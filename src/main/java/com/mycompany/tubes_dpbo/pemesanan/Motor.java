@@ -45,7 +45,6 @@ public class Motor extends Pemesanan implements Kendaraan {
         return jarak * jarakPerKilometer;
     }
 
-    
     @Override
     public String toString() {
         return "Pemesanan dengan Nama: " + super.getName() + ", Lokasi Penjemputan: " 
@@ -53,6 +52,4 @@ public class Motor extends Pemesanan implements Kendaraan {
                 + ", Menggunakan Kendaraan: " + super.getKendaraan() + ", Total Harga: " + this.totalHarga();
     
     }
-
-    
 }
