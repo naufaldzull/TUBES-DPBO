@@ -15,34 +15,35 @@ public class Pengantaran implements Alamat{
     private String durasiPerjalanan;
 
     public Pengantaran(String namaPenumpang, String durasiPerjalanan) {
+         if (namaPenumpang == null || namaPenumpang.isBlank()) {
+            throw new IllegalArgumentException("Nama penumpang tidak boleh kosong.");
+        }
+        if (durasiPerjalanan == null || durasiPerjalanan.isBlank()) {
+            throw new IllegalArgumentException("Durasi perjalanan tidak boleh kosong.");
+        }
         this.namaPenumpang = namaPenumpang;
         this.durasiPerjalanan = durasiPerjalanan;
     }
-    
-    public String getNamaPenumpang() {
+     public String getNamaPenumpang() {
         return namaPenumpang;
-    }
-
-    public void setNamaPenumpang(String namaPenumpang) {
-        this.namaPenumpang = namaPenumpang;
     }
 
     public String getDurasiPerjalanan() {
         return durasiPerjalanan;
     }
 
-    public void setDurasiPerjalanan(String durasiPerjalanan) {
-        this.durasiPerjalanan = durasiPerjalanan;
-    }
-
     @Override
     public void alamatTujuan() {
-        System.out.println("");
+         System.out.println("Pengantaran akan dilakukan untuk penumpang: " + namaPenumpang);
     }
 
     @Override
     public void alamatAsal(String asal) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         if (asal == null || asal.isBlank()) {
+            System.out.println("Alamat asal tidak valid. Mohon masukkan alamat yang valid.");
+        } else {
+            System.out.println("Alamat asal telah ditetapkan: " + asal);
+        }
     }
 }
 
