@@ -9,7 +9,6 @@ package com.mycompany.tubes_dpbo;
  * @author Raka Darma
  */
 import com.mycompany.tubes_dpbo.registrasi.Registrasi;
-import com.mycompany.tubes_dpbo.registrasi.RegistrasiDriver;
 import com.mycompany.tubes_dpbo.registrasi.RegistrasiUser;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -18,16 +17,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<RegistrasiUser> user = new ArrayList<>();
-        ArrayList<RegistrasiDriver> driver = new ArrayList<>();
 
         while (true) {
             System.out.println("\n=== APLIKASI ANTAR JEMPUT KENDARAAN ONLINE ===");
             System.out.println("1. Registrasi User");
-            System.out.println("2. Registrasi Driver");
-            System.out.println("3. Verifikasi User");
-            System.out.println("4. Tampilkan Info Driver");
-            System.out.println("5. Login User");
-            System.out.println("6. Keluar");
+            System.out.println("2. Verifikasi User");
+            System.out.println("3. Login User");
+            System.out.println("4. Keluar");
             System.out.print("Pilih menu: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine(); 
@@ -54,28 +50,6 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.print("Masukkan nama: ");
-                    String namaDriver = scanner.nextLine();
-                    System.out.print("Masukkan nomor telepon: ");
-                    String noTelpDriver = scanner.nextLine();
-                    System.out.print("Masukkan email: ");
-                    String emailDriver = scanner.nextLine();
-                    System.out.print("Masukkan SIM: ");
-                    String simDriver = scanner.nextLine();
-                    System.out.print("Masukkan kendaraan: ");
-                    String kendaraanDriver = scanner.nextLine();
-
-                    RegistrasiDriver newDriver = new RegistrasiDriver(namaDriver, noTelpDriver, emailDriver, simDriver, kendaraanDriver);
-
-                    if (Registrasi.isEmpty(newDriver.getNama(), newDriver.getNoTelp(), newDriver.getEmail(), null , newDriver.getSim(), newDriver.getKendaraan())) {
-                        System.out.println("Registrasi driver gagal. Semua data harus diisi.");
-                    } else {
-                        driver.add(newDriver);
-                        newDriver.uploadDokumen();
-                    }
-                    break;
-
-                case 3:
                     if (!user.isEmpty()) {
                         System.out.println("\n=== DAFTAR USER TERDAFTAR ===");
                         for (int i = 0; i < user.size(); i++) {
@@ -102,20 +76,7 @@ public class Main {
                     }
                     break;
 
-                case 4:
-                    if (!driver.isEmpty()) { 
-                        System.out.println("\n=== DATA SEMUA DRIVER ===");
-                        for (RegistrasiDriver drivers : driver) { 
-                            System.out.println(drivers.toString()); 
-                            drivers.infoKendaraan();
-                            System.out.println("--------------------------");
-                        }
-                    } else {
-                        System.out.println("Belum ada data driver yang terdaftar.");
-                    }
-                    break;
-
-                case 5:
+                case 3:
                     System.out.print("Masukkan nama Anda untuk masuk ke Menu Utama: ");
                     String namaMasuk = scanner.nextLine();
                     boolean isUserRegistered = false;
@@ -133,7 +94,7 @@ public class Main {
                     }
                     break;
 
-                case 6:
+                case 4:
                     System.out.println("Terima kasih telah menggunakan sistem registrasi!");
                     System.exit(0);
                     break;

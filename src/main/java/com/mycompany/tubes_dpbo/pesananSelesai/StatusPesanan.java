@@ -8,14 +8,14 @@ package com.mycompany.tubes_dpbo.pesananSelesai;
  *
  * @author Raka Darma
  */
-public class Pesanan {
+public class StatusPesanan {
     private String idPesanan;
     private String tanggalPesanan;
     private String statusPesanan;
     private double totalHarga;
 
    
-    public Pesanan(String idPesanan, String tanggalPesanan, String statusPesanan, double totalHarga) {
+    public StatusPesanan(String idPesanan, String tanggalPesanan, String statusPesanan, double totalHarga) {
         this.idPesanan = idPesanan;
         this.tanggalPesanan = tanggalPesanan;
         this.statusPesanan = statusPesanan;
