@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tubes_dpbo.riwayat;
+package com.mycompany.tubes_dpbo.riwayatdanpromo;
 
-import com.mycompany.tubes_dpbo.riwayat.RPemesanan;
+import com.mycompany.tubes_dpbo.riwayatdanpromo.RPemesanan;
 
 /**
  *

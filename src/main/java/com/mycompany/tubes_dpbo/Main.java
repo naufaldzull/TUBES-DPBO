@@ -26,7 +26,7 @@ public class Main {
             System.out.println("2. Registrasi Driver");
             System.out.println("3. Verifikasi User");
             System.out.println("4. Tampilkan Info Driver");
-            System.out.println("5. Masuk ke Menu Utama");
+            System.out.println("5. Login User");
             System.out.println("6. Keluar");
             System.out.print("Pilih menu: ");
             int pilihan = scanner.nextInt();
@@ -148,7 +148,7 @@ public class Main {
         while (true) {
             System.out.println("\n=== MENU UTAMA ===");
             System.out.println("1. Pesan Kendaraan");
-            System.out.println("2. Riwayat");
+            System.out.println("2. Riwayat");   
             System.out.println("3. Promo");
             System.out.println("4. Keluar");
             System.out.print("Pilih menu: ");
