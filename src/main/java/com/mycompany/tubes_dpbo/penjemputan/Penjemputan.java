@@ -14,7 +14,15 @@ public class Penjemputan implements Alamat{
     private String namaPenjemput;
 
     public Penjemputan(String lokasiPenjemputan, String waktuPenjemputan, String namaPenjemput) {
-        
+          if (lokasiPenjemputan == null || lokasiPenjemputan.isBlank()) {
+            throw new IllegalArgumentException("Lokasi penjemputan tidak boleh kosong.");
+        }
+        if (waktuPenjemputan == null || waktuPenjemputan.isBlank()) {
+            throw new IllegalArgumentException("Waktu penjemputan tidak boleh kosong.");
+        }
+        if (namaPenjemput == null || namaPenjemput.isBlank()) {
+            throw new IllegalArgumentException("Nama penjemput tidak boleh kosong.");
+        }
         
         this.lokasiPenjemputan = lokasiPenjemputan;
         this.waktuPenjemputan = waktuPenjemputan;
