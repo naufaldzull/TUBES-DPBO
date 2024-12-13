@@ -8,6 +8,9 @@ package com.mycompany.tubes_dpbo;
  *
  * @author Raka Darma
  */
+import com.mycompany.tubes_dpbo.pemesanan.Mobil;
+import com.mycompany.tubes_dpbo.pemesanan.Motor;
+import com.mycompany.tubes_dpbo.pemesanan.Pemesanan;
 import com.mycompany.tubes_dpbo.registrasi.Registrasi;
 import com.mycompany.tubes_dpbo.registrasi.RegistrasiUser;
 import java.util.Scanner;
@@ -17,6 +20,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<RegistrasiUser> user = new ArrayList<>();
+        ArrayList<Pemesanan> pemesanans = new ArrayList<>();
 
         while (true) {
             System.out.println("\n=== APLIKASI ANTAR JEMPUT KENDARAAN ONLINE ===");
@@ -83,10 +87,10 @@ public class Main {
 
                     for (RegistrasiUser users : user) {
                         if (users.getNama().equalsIgnoreCase(namaMasuk)) {
-                            isUserRegistered = true;
-                            System.out.println("Selamat datang, " + users.getNama() + "!");
-                            showMenuUtama(scanner);
-                            break;
+                        isUserRegistered = true;
+                        System.out.println("Selamat datang, " + users.getNama() + "!");
+                        showMenuUtama(scanner, pemesanans); // Pass pemesanans to showMenuUtama
+                        break;
                         }
                     }
                     if (!isUserRegistered) {
@@ -105,35 +109,69 @@ public class Main {
         }
     }
 
-    private static void showMenuUtama(Scanner scanner) {
-        while (true) {
-            System.out.println("\n=== MENU UTAMA ===");
-            System.out.println("1. Pesan Kendaraan");
-            System.out.println("2. Riwayat");   
-            System.out.println("3. Promo");
-            System.out.println("4. Keluar");
-            System.out.print("Pilih menu: ");
-            int pilih = scanner.nextInt();
-            scanner.nextLine();
+    private static void showMenuUtama(Scanner scanner, ArrayList<Pemesanan> pemesanans) {
+    while (true) {
+        System.out.println("\n=== MENU UTAMA ===");
+        System.out.println("1. Pesan Kendaraan");
+        System.out.println("2. Riwayat");
+        System.out.println("3. Promo");
+        System.out.println("4. Keluar");
+        System.out.print("Pilih menu: ");
+        int pilih = scanner.nextInt();
+        scanner.nextLine();
 
-            switch (pilih) {
-                case 1:
-                    System.out.println("Fitur Pesan Kendaraan belum tersedia.");
-                    break;
-                case 2:
-                    System.out.println("Fitur Riwayat belum tersedia.");
-                    break;
-                case 3:
-                    System.out.println("Fitur Promo belum tersedia.");
-                    break;
-                case 4:
-                    System.out.println("Keluar dari Menu Utama.");
-                    return;
-                default:
-                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
-            }
+        switch (pilih) {
+            case 1:
+                // Pesan kendaraan
+                System.out.println("Pilih jenis kendaraan:");
+                System.out.println("1. Motor");
+                System.out.println("2. Mobil");
+                System.out.print("Masukkan pilihan kendaraan: ");
+                int kendaraanPilih = scanner.nextInt();
+                scanner.nextLine();
+
+                System.out.print("Masukkan nama: ");
+                String name = scanner.nextLine();
+                System.out.print("Masukkan lokasi penjemputan: ");
+                String pickuplocation = scanner.nextLine();
+                System.out.print("Masukkan tujuan: ");
+                String destination = scanner.nextLine();
+
+                Pemesanan pemesanan = null;
+                if (kendaraanPilih == 1) {
+                    pemesanan = new Motor(name, pickuplocation, destination, "Motor");
+                } else if (kendaraanPilih == 2) {
+                    pemesanan = new Mobil(name, pickuplocation, destination, "Mobil");
+                }
+
+                if (pemesanan != null) {
+                    pemesanans.add(pemesanan); // Add booking to the list
+                    System.out.println("Pemesanan berhasil!");
+                    System.out.println(pemesanan.toString());
+                }
+                break;
+            case 2:
+                // Display riwayat
+                if (pemesanans.isEmpty()) {
+                    System.out.println("Belum ada riwayat pemesanan.");
+                } else {
+                    System.out.println("\n=== RIWAYAT PEMESANAN ===");
+                    for (int i = 0; i < pemesanans.size(); i++) {
+                        System.out.println((i + 1) + ". " + pemesanans.get(i).toString());
+                    }
+                }
+                break;
+            case 3:
+                System.out.println("Fitur Promo belum tersedia.");
+                break;
+            case 4:
+                System.out.println("Keluar dari Menu Utama.");
+                return;
+            default:
+                System.out.println("Pilihan tidak valid. Silakan coba lagi.");
         }
     }
+}
 }
     
 

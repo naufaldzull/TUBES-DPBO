@@ -5,30 +5,54 @@
 package com.mycompany.tubes_dpbo.pemesanan;
 
 import com.mycompany.tubes_dpbo.pemesanan.Pemesanan;
-
 /**
  *
- * @author Raka Darma
+ * @author naufa
  */
-public class Motor extends Pemesanan {
-    private String typeMotor;
+public class Motor extends Pemesanan implements Kendaraan {
+    private int total;
 
-    public Motor(String orderID, String Name, String pickuplocation, String destination, int estimatedTime, double price, String typeMotor) {
-        super(orderID, Name, pickuplocation, destination, estimatedTime, price);
-        this.typeMotor = typeMotor;
+    public Motor(String Name, String pickuplocation, String destination, String kendaraan) {
+        super(Name, pickuplocation, destination, kendaraan);
+    }
+    
+    @Override
+    public int totalHarga() {
+        int jarakPerKilometer = 3000; // Harga per kilometer
+        int jarak = 0;
+
+        switch (getDestination().toLowerCase()) {
+            case "cibiru":
+                jarak = 14;
+                break;
+            case "baleendah":
+                jarak = 8;
+                break;
+            case "margaasih":
+                jarak = 11;
+                break;
+            case "cimahi":
+                jarak = 18;
+                break;
+            case "kiaracondong":
+                jarak = 5;
+                break;
+            default:
+                // Tambahkan logika untuk jarak default atau jarak yang tidak diketahui
+                jarak = 0;
+                System.out.println("Jarak tujuan tidak diketahui");
+        }
+        return jarak * jarakPerKilometer;
     }
 
-    public String getTypeMotor() {
-        return typeMotor;
-    }
-
-    public void setTypeMotor(String typeMotor) {
-        this.typeMotor = typeMotor;
-    }
-
+    
     @Override
     public String toString() {
-        return "Pemesanan dengan orderID: " + super.getOrderID() + ", Nama: " + super.getName() + ", Lokasi Penjemputan: " + super.getPickuplocation() + ", Tujuan: " + super.getDestination() + ", Estimasi Waktu: " + super.getEstimatedTime() + ", Harga:" + super.getPrice() + "Menggunakan Motor dengan tipe motor: " + typeMotor;
+        return "Pemesanan dengan Nama: " + super.getName() + ", Lokasi Penjemputan: " 
+                + super.getPickuplocation() + ", Tujuan: " + super.getDestination() 
+                + ", Menggunakan Kendaraan: " + super.getKendaraan() + ", Total Harga: " + this.totalHarga();
+    
     }
-}
 
+    
+}

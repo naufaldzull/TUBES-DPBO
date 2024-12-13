@@ -2,37 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
 package com.mycompany.tubes_dpbo.pemesanan;
 
 /**
  *
- * @author Raka Darma
+ * @author naufa
  */
 public class Pemesanan {
-    private String orderID;
     private String Name;
     private String pickuplocation;
     private String destination;
-    private int estimatedTime;
-    private double price;
+    private String kendaraan;
 
-    public Pemesanan(String orderID, String Name, String pickuplocation, String destination, int estimatedTime, double price) {
-        this.orderID = orderID;
+    public Pemesanan(String Name, String pickuplocation, String destination, String kendaraan) {
         this.Name = Name;
         this.pickuplocation = pickuplocation;
         this.destination = destination;
-        this.estimatedTime = estimatedTime;
-        this.price = price;
+        this.kendaraan = kendaraan;
     }
-
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
-    }
-
+    
     public String getName() {
         return Name;
     }
@@ -57,24 +46,16 @@ public class Pemesanan {
         this.destination = destination;
     }
 
-    public int getEstimatedTime() {
-        return estimatedTime;
+    public String getKendaraan() {
+        return kendaraan;
     }
 
-    public void setEstimatedTime(int estimatedTime) {
-        this.estimatedTime = estimatedTime;
+    public void setKendaraan(String kendaraan) {
+        this.kendaraan = kendaraan;
     }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
+    
     @Override
     public String toString() {
-        return "Pemesanan dengan " + "orderID: " + orderID + ", Nama: " + Name + ", Lokasi Penjemputan: " + pickuplocation + ", Tujuan: " + destination + ", Estimasi Waktu: " + estimatedTime + ", Harga:" + price ;
+        return "Pemesanan dengan Nama: " + Name + ", Lokasi Penjemputan: " + pickuplocation + ", Tujuan: " + destination + ", Menggunakan Kendaraan: " + kendaraan;
     }
 }
