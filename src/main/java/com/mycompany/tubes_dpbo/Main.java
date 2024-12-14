@@ -133,9 +133,10 @@ public class Main {
 
                 System.out.print("Masukkan nama: ");
                 String name = scanner.nextLine();
+                String pickuplocation;
                         while (true) { // Loop until valid input is provided
                             System.out.print("Masukkan lokasi penjemputan: ");
-                            String pickuplocation = scanner.nextLine();
+                            pickuplocation = scanner.nextLine();
                             try {
                                 if (pickuplocation == null || pickuplocation.isBlank()) {
                                     throw new IllegalArgumentException("Lokasi penjemputan tidak boleh kosong.");
