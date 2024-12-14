@@ -9,6 +9,6 @@ package com.mycompany.tubes_dpbo.penjemputan;
  * @author Raka Darma
  */
 public interface Alamat {
-    public void alamatTujuan();
+    public void alamatTujuan(String tujuan);
     public void alamatAsal(String asal); 
 }

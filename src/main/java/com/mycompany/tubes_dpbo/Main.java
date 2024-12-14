@@ -10,6 +10,7 @@ package com.mycompany.tubes_dpbo;
  */
 import com.mycompany.tubes_dpbo.pemesanan.Mobil;
 import com.mycompany.tubes_dpbo.pemesanan.Motor;
+import com.mycompany.tubes_dpbo.penjemputan.Penjemputan;
 import com.mycompany.tubes_dpbo.pemesanan.Pemesanan;
 import com.mycompany.tubes_dpbo.registrasi.Registrasi;
 import com.mycompany.tubes_dpbo.registrasi.RegistrasiUser;
@@ -132,11 +133,28 @@ public class Main {
 
                 System.out.print("Masukkan nama: ");
                 String name = scanner.nextLine();
-                System.out.print("Masukkan lokasi penjemputan: ");
-                String pickuplocation = scanner.nextLine();
-                
+                        while (true) { // Loop until valid input is provided
+                            System.out.print("Masukkan lokasi penjemputan: ");
+                            String pickuplocation = scanner.nextLine();
+
+                            try {
+                                if (pickuplocation == null || pickuplocation.isBlank()) {
+                                    throw new IllegalArgumentException("Lokasi penjemputan tidak boleh kosong.");
+                                }
+                                // If input is valid, break the loop
+                                break;
+                            } catch (IllegalArgumentException e) {
+                                System.out.println("Error: " + e.getMessage());
+                            }
+                        }
+
+                        // Proceed with the valid lokasiPenjemputan
+                Penjemputan penjemputan = new Penjemputan(pickuplocation);
+                penjemputan.alamatAsal(pickuplocation);
+                penjemputan.alamatTujuan(pickuplocation);
                 System.out.print("Masukkan tujuan: ");
                 String destination = scanner.nextLine();
+                
 
                 Pemesanan pemesanan = null;
                 if (kendaraanPilih == 1) {
@@ -161,6 +179,7 @@ public class Main {
                         System.out.println((i + 1) + ". " + pemesanans.get(i).toString());
                     }
                 }
+                
                 break;
             case 3:
                 System.out.println("Fitur Promo belum tersedia.");

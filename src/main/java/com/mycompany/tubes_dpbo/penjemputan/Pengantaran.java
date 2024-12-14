@@ -4,7 +4,7 @@
  */
 package com.mycompany.tubes_dpbo.penjemputan;
 
-import com.mycompany.tubes_dpbo.penjemputan.Penjemputan;
+
 
 /**
  *
@@ -33,8 +33,8 @@ public class Pengantaran implements Alamat{
     }
 
     @Override
-    public void alamatTujuan() {
-         System.out.println("Pengantaran akan dilakukan untuk penumpang: " + namaPenumpang);
+    public void alamatTujuan(String tujuan) {
+         System.out.println("Pengantaran akan dilakukan untuk Tujuan: " + namaPenumpang);
     }
 
     @Override
