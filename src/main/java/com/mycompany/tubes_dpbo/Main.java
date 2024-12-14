@@ -134,6 +134,7 @@ public class Main {
                 String name = scanner.nextLine();
                 System.out.print("Masukkan lokasi penjemputan: ");
                 String pickuplocation = scanner.nextLine();
+                
                 System.out.print("Masukkan tujuan: ");
                 String destination = scanner.nextLine();
 
