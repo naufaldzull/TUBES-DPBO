@@ -12,29 +12,28 @@ package com.mycompany.tubes_dpbo.penjemputan;
  */
 public class Pengantaran implements Alamat{
     private String namaPenumpang;
-    private String durasiPerjalanan;
+    private String tujuan;
 
-    public Pengantaran(String namaPenumpang, String durasiPerjalanan) {
-         if (namaPenumpang == null || namaPenumpang.isBlank()) {
-            throw new IllegalArgumentException("Nama penumpang tidak boleh kosong.");
-        }
-        if (durasiPerjalanan == null || durasiPerjalanan.isBlank()) {
-            throw new IllegalArgumentException("Durasi perjalanan tidak boleh kosong.");
+    public Pengantaran(String namaPenumpang, String tujuan) {
+        if (tujuan == null || tujuan.isBlank()) {
+            throw new IllegalArgumentException("Tujuan perjalanan tidak boleh kosong.");
         }
         this.namaPenumpang = namaPenumpang;
-        this.durasiPerjalanan = durasiPerjalanan;
+        this.tujuan = tujuan;
     }
-     public String getNamaPenumpang() {
+
+    public String getNamaPenumpang() {
         return namaPenumpang;
     }
 
-    public String getDurasiPerjalanan() {
-        return durasiPerjalanan;
+    public String getTujuan() {
+        return tujuan;
     }
+    
 
     @Override
     public void alamatTujuan(String tujuan) {
-         System.out.println("Pengantaran akan dilakukan untuk Tujuan: " + namaPenumpang);
+         System.out.println("Pengantaran atas nama "+ this.getNamaPenumpang()+ " akan dilakukan untuk Tujuan: " + tujuan);
     }
 
     @Override

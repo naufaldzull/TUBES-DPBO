@@ -12,6 +12,7 @@ import com.mycompany.tubes_dpbo.pemesanan.Mobil;
 import com.mycompany.tubes_dpbo.pemesanan.Motor;
 import com.mycompany.tubes_dpbo.penjemputan.Penjemputan;
 import com.mycompany.tubes_dpbo.pemesanan.Pemesanan;
+import com.mycompany.tubes_dpbo.penjemputan.Pengantaran;
 import com.mycompany.tubes_dpbo.registrasi.Registrasi;
 import com.mycompany.tubes_dpbo.registrasi.RegistrasiUser;
 import java.util.Scanner;
@@ -134,41 +135,41 @@ public class Main {
                 System.out.print("Masukkan nama: ");
                 String name = scanner.nextLine();
                 String pickuplocation;
-                        while (true) { // Loop until valid input is provided
-                            System.out.print("Masukkan lokasi penjemputan: ");
-                            pickuplocation = scanner.nextLine();
+                        while (true) {
                             try {
-                                if (pickuplocation == null || pickuplocation.isBlank()) {
-                                    throw new IllegalArgumentException("Lokasi penjemputan tidak boleh kosong.");
-                                }
-                                // If input is valid, break the loop
+                                System.out.print("Masukkan lokasi penjemputan: ");
+                                pickuplocation = scanner.nextLine();
+                                Penjemputan penjemputan = new Penjemputan(pickuplocation);
+                                penjemputan.alamatAsal(pickuplocation);
                                 break;
                             } catch (IllegalArgumentException e) {
                                 System.out.println("Error: " + e.getMessage());
                             }
                         }
+                String destination;
+                    while (true){
+                        try {
+                            System.out.print("Masukkan tujuan: ");
+                            destination = scanner.nextLine();
+                            Pengantaran pengantaran = new Pengantaran(name, destination);
+                            pengantaran.alamatTujuan(destination);
+                            Pemesanan pemesanan = null;
+                            if (kendaraanPilih == 1) {
+                                pemesanan = new Motor(name, pickuplocation, destination, "Motor");
+                            } else if (kendaraanPilih == 2) {
+                                pemesanan = new Mobil(name, pickuplocation, destination, "Mobil");
+                            }
 
-                        // Proceed with the valid lokasiPenjemputan
-                Penjemputan penjemputan = new Penjemputan(pickuplocation);
-                penjemputan.alamatAsal(pickuplocation);
-                penjemputan.alamatTujuan(pickuplocation);
-                System.out.print("Masukkan tujuan: ");
-                String destination = scanner.nextLine();
-                
-
-                Pemesanan pemesanan = null;
-                if (kendaraanPilih == 1) {
-                    pemesanan = new Motor(name, pickuplocation, destination, "Motor");
-                } else if (kendaraanPilih == 2) {
-                    pemesanan = new Mobil(name, pickuplocation, destination, "Mobil");
-                }
-
-                if (pemesanan != null) {
-                    pemesanans.add(pemesanan); // Add booking to the list
-                    System.out.println("Pemesanan berhasil!");
-                    System.out.println(pemesanan.toString());
-                }
-                break;
+                            if (pemesanan != null) {
+                                pemesanans.add(pemesanan); // Add booking to the list
+                                System.out.println("Pemesanan berhasil!");
+                                System.out.println(pemesanan.toString());
+                                break;
+                            }
+                        }catch (IllegalArgumentException e){
+                            System.out.println("Errot: " + e.getMessage());
+                        }
+                    }
             case 2:
                 // Display riwayat
                 if (pemesanans.isEmpty()) {
