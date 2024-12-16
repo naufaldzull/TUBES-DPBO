@@ -15,6 +15,7 @@ import com.mycompany.tubes_dpbo.pemesanan.Pemesanan;
 import com.mycompany.tubes_dpbo.penjemputan.Pengantaran;
 import com.mycompany.tubes_dpbo.registrasi.Registrasi;
 import com.mycompany.tubes_dpbo.registrasi.RegistrasiUser;
+import com.mycompany.tubes_dpbo.riwayatdanpromo.Promo;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -135,41 +136,42 @@ public class Main {
                 System.out.print("Masukkan nama: ");
                 String name = scanner.nextLine();
                 String pickuplocation;
-                        while (true) {
-                            try {
-                                System.out.print("Masukkan lokasi penjemputan: ");
-                                pickuplocation = scanner.nextLine();
-                                Penjemputan penjemputan = new Penjemputan(pickuplocation);
-                                penjemputan.alamatAsal(pickuplocation);
-                                break;
-                            } catch (IllegalArgumentException e) {
-                                System.out.println("Error: " + e.getMessage());
-                            }
-                        }
-                String destination;
-                    while (true){
-                        try {
-                            System.out.print("Masukkan tujuan: ");
-                            destination = scanner.nextLine();
-                            Pengantaran pengantaran = new Pengantaran(name, destination);
-                            pengantaran.alamatTujuan(destination);
-                            Pemesanan pemesanan = null;
-                            if (kendaraanPilih == 1) {
-                                pemesanan = new Motor(name, pickuplocation, destination, "Motor");
-                            } else if (kendaraanPilih == 2) {
-                                pemesanan = new Mobil(name, pickuplocation, destination, "Mobil");
-                            }
-
-                            if (pemesanan != null) {
-                                pemesanans.add(pemesanan); // Add booking to the list
-                                System.out.println("Pemesanan berhasil!");
-                                System.out.println(pemesanan.toString());
-                                break;
-                            }
-                        }catch (IllegalArgumentException e){
-                            System.out.println("Errot: " + e.getMessage());
-                        }
+                while (true) {
+                    try {
+                        System.out.print("Masukkan lokasi penjemputan: ");
+                        pickuplocation = scanner.nextLine();
+                        Penjemputan penjemputan = new Penjemputan(pickuplocation);
+                        penjemputan.alamatAsal(pickuplocation);
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Error: " + e.getMessage());
                     }
+                }
+                String destination;
+                while (true) {
+                    try {
+                        System.out.print("Masukkan tujuan: ");
+                        destination = scanner.nextLine();
+                        Pengantaran pengantaran = new Pengantaran(name, destination);
+                        pengantaran.alamatTujuan(destination);
+                        Pemesanan pemesanan = null;
+                        if (kendaraanPilih == 1) {
+                            pemesanan = new Motor(name, pickuplocation, destination, "Motor");
+                        } else if (kendaraanPilih == 2) {
+                            pemesanan = new Mobil(name, pickuplocation, destination, "Mobil");
+                        }
+
+                        if (pemesanan != null) {
+                            pemesanans.add(pemesanan); // Add booking to the list
+                            System.out.println("Pemesanan berhasil!");
+                            System.out.println(pemesanan.toString());
+                            break;
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                }
+                break;
             case 2:
                 // Display riwayat
                 if (pemesanans.isEmpty()) {
@@ -180,10 +182,15 @@ public class Main {
                         System.out.println((i + 1) + ". " + pemesanans.get(i).toString());
                     }
                 }
-                
                 break;
             case 3:
-                System.out.println("Fitur Promo belum tersedia.");
+                // Display available promos
+                System.out.println("\n=== DAFTAR PROMO ===");
+                Promo[] promos = Promo.getPromos();
+                for (Promo promo : promos) {
+                    System.out.println(promo.toString());
+                    System.out.println("-----------------------");
+                }
                 break;
             case 4:
                 System.out.println("Keluar dari Menu Utama.");

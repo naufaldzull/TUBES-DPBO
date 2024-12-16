@@ -48,9 +48,9 @@ public class Mobil extends Pemesanan implements Kendaraan {
     
     @Override
     public String toString() {
-        return "Pemesanan dengan Nama: " + super.getName() + ", Lokasi Penjemputan: " 
-                + super.getPickuplocation() + ", Tujuan: " + super.getDestination() 
-                + ", Menggunakan Kendaraan: " + super.getKendaraan() + ", Total Harga: " + this.total;
+        return "Pemesanan dengan Nama\t: " + super.getName() + "\nLokasi Penjemputan\t: " 
+                + super.getPickuplocation() + "\nTujuan\t\t\t: " + super.getDestination() 
+                + "\nMenggunakan Kendaraan\t: " + super.getKendaraan() + "\nTotal Harga\t\t: " + totalHarga();
     }
 }
 

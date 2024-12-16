@@ -17,7 +17,7 @@ public class Riwayat extends RPemesanan {
 
     @Override
     public void DName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
