@@ -11,22 +11,22 @@ import com.mycompany.tubes_dpbo.registrasi.Registrasi;
  * @author Raka Darma
  */
 public class RegistrasiUser extends Registrasi {
-    private String alamat;
+    private String password;
 
     public RegistrasiUser(String alamat, String nama, String noTelp, String email) {
         super(nama, noTelp, email);
-        this.alamat = alamat;
+        this.password = alamat;
     }
 
     public String getAlamat() {
-        return alamat;
+        return password;
     }
 
     public void setAlamat(String alamat) {
-        this.alamat = alamat;
+        this.password = alamat;
     }
     public void verifikasiUser() {
-        if (getNama() != null && !getNama().isEmpty() && getNoTelp() != null && !getNoTelp().isEmpty() && getEmail() != null && !getEmail().isEmpty() && alamat != null && !alamat.isEmpty()) {
+        if (getNama() != null && !getNama().isEmpty() && getNoTelp() != null && !getNoTelp().isEmpty() && getEmail() != null && !getEmail().isEmpty() && password != null && !password.isEmpty()) {
             System.out.println("Verifikasi user berhasil!");
         } else {
             System.out.println("Verifikasi user gagal. Pastikan semua data telah diisi dengan benar.");

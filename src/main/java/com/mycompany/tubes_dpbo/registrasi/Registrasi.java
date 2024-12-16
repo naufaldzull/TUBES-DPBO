@@ -43,11 +43,11 @@ public class Registrasi {
         this.email = email;
     }
 
-    public static boolean isEmpty(String nama, String noTelp, String email, String alamat, String sim, String kendaraan) {
+    public static boolean isEmpty(String nama, String noTelp, String email, String password, String sim, String kendaraan) {
         return (nama == null || nama.isEmpty() ||
                 (noTelp == null || noTelp.isEmpty()) ||
                 (email == null || email.isEmpty()) ||
-                (alamat != null && alamat.isEmpty()) ||
+                (password != null && password.isEmpty()) ||
                 (sim != null && sim.isEmpty()) ||
                 (kendaraan != null && kendaraan.isEmpty()));
     }
